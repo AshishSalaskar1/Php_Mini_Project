@@ -10,15 +10,15 @@
         <title>Home</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="css/style.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-        <script src="js/vendor/jquery-1.12.0.min.js"></script>
-        <script src="bootstrap-3.3.7/js/bootstrap.min.js"> </script>
-        <script src="bootstrap-3.3.7/js/bootstrap.js"> </script>
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
+        <script src="../js/vendor/jquery-1.12.0.min.js"></script>
+        <script src="../bootstrap-3.3.7/js/bootstrap.min.js"> </script>
+        <script src="../bootstrap-3.3.7/js/bootstrap.js"> </script>
 
         <style>
             /* #cInput{
@@ -31,53 +31,31 @@
 
 </head>
 <body>
-<div class="main">
 
-<div class="row">
-  <div class="col-sm-12">
-  <nav class="shadow navbar navbar-inverse navbar-fixed-top nbar">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand lspace" href="index.php">RUET OJ</a>
-       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-            </button>
+      <a class="navbar-brand" href="#">CodeBlocks</a>
     </div>
-   <div class="collapse navbar-collapse navbar-menubuilder">
     <ul class="nav navbar-nav">
-      <li class="space"><a href="compiler.php"><i class="fa fa-code ispace"></i>Compiler</a></li>
-      <li class="space"><a href="archive.php"><i class="fa fa-archive ispace"></i>Problem Archive</a></li>
-      <li class="space"><a href="contest.php"><i class="fa fa-cogs ispace"></i>Contests</a></li>
-      <li class="space"><a href="#"><i class="fa fa-check-square ispace"></i>Debug</a></li>
-     
-      
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">Solve Problems</a></li>
+      <li><a href="#">Practice</a></li>
+      <li><a href="#">Community</a></li>
     </ul>
-    </div>
+  </div>
 </nav>
-</div>
-</div>
-
-
-<div class="row log">
-<div class="col-sm-10">
-<!--<center><div class="alert alert-success"><a href="https://github.com/shawon100/RUET-OJ">RUET OJ</a> is temporary unavailable for server problem. We will be back</div></center><br>-->
-
-</div>
-
-<div class="col-sm-1">
-
-</div>
-
-<div class="col-sm-1">
-</div>
-
-</div>
 
 
 <?php 
-  include("sql.php");
+  include("../sql.php");
+  // echo "Helo".$_POST["problemId"]."<br>";
+  $pid = $_POST["problemId"];
+  // echo "PID: ".$pid."<br>";
 ?>
 
 <?php
-  $sql_stmt = "SELECT * FROM problem_definitions where p_id=1"; 
+  $sql_stmt = "SELECT * FROM problem_definitions where p_id=".$pid.";"; 
   $result = mysqli_query($db_handle,$sql_stmt);
 
   $name = "";
@@ -93,7 +71,7 @@
       $description= $row['description'];
       $input= $row['input'];
       $output= $row['output'];
-      echo $output;
+      // echo $output;
       $category= $row['cat'];
       $sample= $row['input_spec'];           
   } 
@@ -101,7 +79,7 @@
   mysqli_close($db_handle);
 ?>
 
-<div id="container">
+<div id="container" class="container">
   <div id="problem_def">
     <h2> <?php echo $name ?> <h2> 
     
@@ -118,7 +96,7 @@
 <div class="row cspace">
 <div class="col-sm-8">
 <div class="form-group">
-<form action="compile.php" name="f2" method="POST">
+<form action="../compile.php" name="f2" method="POST">
         <label for="lang">Choose Language</label>
 
         <select class="form-control" name="language">
@@ -139,8 +117,10 @@
         <br><br>
         <label for="in">Enter Your Input</label>
         <textarea class="form-control" id="cInput" name="input" rows="10" cols="50"></textarea><br><br>
-        <input type="submit" class="btn btn-success" value="Run Code"><br><br><br>
         <input type="text" id="eOutput" name="eOutput" style="display:none;"/>
+        <input type="text" id="problemId" name="pid" style="display:none;"/>
+        <input type="submit" class="btn btn-success" value="Run Code"><br><br><br>
+       
 </form>
 
 </div>
@@ -189,8 +169,17 @@ echo"<b>Server Time:  $t</b>";
             function setExpectedOp(val){
                 document.getElementById("eOutput").value = val;
             }
-            setCustominput("<?php echo $input; ?>");
+            function setPID(val){
+                
+                console.log(val);
+            }
+
+            document.getElementById("problemId").value =" <?php echo $pid ?>";
+            
+
+            setCustominput(`<?php echo $input; ?>`);
             setExpectedOp("<?php echo $output; ?>");
+           
 
 </script>
 </body>

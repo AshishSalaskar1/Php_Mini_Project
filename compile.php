@@ -72,10 +72,12 @@
 <?php
 
 	$languageID=$_POST["language"];
+	// $pid = $_POST["pid"];
+
         error_reporting(0);
 	if($_FILES["file"]["name"]!="")
 	{
-		include "compilers/make.php";
+		include "../compilers/make.php";
 	}
 	else
 	{
@@ -134,12 +136,12 @@
 <div class="col-sm-5">
 
 
-<div class="fm">
+<!-- <div class="fm">
 
 <b>Beta Version-2016</b><br>
 <b>Developed By <a href="https://fb.com/ashadullah.shawon">Ashadullah Shawon</a></b>
 
-</div>
+</div> -->
 </div>
 
 

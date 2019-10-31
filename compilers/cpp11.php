@@ -3,6 +3,7 @@
 	$out="timeout 5s ./a.out";
 	$code=$_POST["code"];
 	$input=$_POST["input"];
+	echo $input;
 	$filename_code="main.cpp";
 	$filename_in="input.txt";
 	$filename_error="error.txt";

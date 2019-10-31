@@ -17,8 +17,8 @@
         <link rel="stylesheet" href="css/style.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
         <script src="js/vendor/jquery-1.12.0.min.js"></script>
-        <script src="bootstrap-3.3.7/js/bootstrap.min.js" </script>
-        <script src="bootstrap-3.3.7/js/bootstrap.js" </script>
+        <script src="bootstrap-3.3.7/js/bootstrap.min.js"> </script>
+        <script src="bootstrap-3.3.7/js/bootstrap.js"> </script>
 
 
 </head>
@@ -39,15 +39,14 @@
       <li class="space"><a href="archive.php"><i class="fa fa-archive ispace"></i>Problem Archive</a></li>
       <li class="space"><a href="contest.php"><i class="fa fa-cogs ispace"></i>Contests</a></li>
       <li class="space"><a href="#"><i class="fa fa-check-square ispace"></i>Debug</a></li>
-     
-      
+        
     </ul>
     </div>
 </nav>
 </div>
 
 <?php
-include("views/p1.php");
+include("views/main_menu.php");
 
 ?>
 

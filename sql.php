@@ -6,7 +6,16 @@ $db_password="ashish98";
 $database_name = "web_project";
 
 $db_handle = mysqli_connect($db_server_name, $db_user_name, $db_password);
+
+if($db_handle === false){
+    die("ERROR: Could not connect. " . mysqli_connect_error());
+}
+
 mysqli_select_db($db_handle,$database_name);
+
+
+
+
 
 // $sql_stmt = "SELECT * FROM problem_definitions"; 
 // $result = mysqli_query($db_handle,$sql_stmt);
