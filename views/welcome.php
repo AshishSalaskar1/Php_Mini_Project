@@ -43,9 +43,25 @@ session_start();
 </head>
 <body>
 
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="../main.php"><strong>CodeBlocks</strong></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="welcome.php">Solve Problems</a></li>
+      <li><a href="practice.php">Practice</a></li>
+      <li><a href="profile.php">Your Profile</a></li>
+      <!-- <li><a href="ranking.php">Ranking</a></li> -->
+      <li><button class="btn btn-danger" style="margin-left:30px;margin-top:8px;"> <a href="logout.php" style="color:white;">Log Out</a> </button></li>
+    </ul>
+  </div>
+</nav>
+
     <div class="page-header">
-        <h1>Hi, <b><?php echo htmlspecialchars($_SESSION["uname"]); ?></b>. Welcome to our CodeBlocks.</h1>
-        <h1>Your user id is <b><?php echo htmlspecialchars($_SESSION["UID"]); ?></b>. .</h1>
+        <h3>Hi, <b><?php echo htmlspecialchars($_SESSION["uname"]); ?></b>. Welcome to our CodeBlocks.</h3>
+        <h3>Your user id is <b><?php echo htmlspecialchars($_SESSION["UID"]); ?></b>. .</h3>
     </div>
 
     <center>
@@ -85,7 +101,7 @@ session_start();
                 <div class="panel-heading">
                         <img src="images/search.png"/>
                 </div>
-                <div class="panel-body">Searching</div>
+                <div class="panel-body"><a class="links" href="searching.php">Searching</a></div>
             </div>
         </div>
         <div class="col-sm-4">
@@ -93,7 +109,7 @@ session_start();
                 <div class="panel-heading">
                     <img src="images/graphs.png"/>
                 </div>
-                <div class="panel-body">Graphs</div>
+                <div class="panel-body"><a class="links" href="graphs.php">Graphs</a></div>
             </div>
         </div>
         <div class="col-sm-4">
@@ -101,7 +117,7 @@ session_start();
                 <div class="panel-heading">
                             <img src="images/recursion.png"/>
                 </div>
-                <div class="panel-body"> Recursion</div>
+                <div class="panel-body"> <a class="links" href="recursion.php">Data Structure Based</a></div>
             </div>
         </div>
     </div>

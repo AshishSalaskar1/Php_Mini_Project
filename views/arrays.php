@@ -56,13 +56,14 @@ while ($row = mysqli_fetch_array($result)) {
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">CodeBlocks</a>
+      <a class="navbar-brand" href="../main.php"><strong>CodeBlocks</strong></a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Solve Problems</a></li>
-      <li><a href="#">Practice</a></li>
-      <li><a href="#">Community</a></li>
+      <li class="active"><a href="welcome.php">Solve Problems</a></li>
+      <li><a href="practice.php">Practice</a></li>
+      <li><a href="profile.php">Your Profile</a></li>
+      <!-- <li><a href="ranking.php">Ranking</a></li> -->
+      <li><button class="btn btn-danger" style="margin-left:30px;margin-top:8px;"> <a href="logout.php" style="color:white;">Log Out</a> </button></li>
     </ul>
   </div>
 </nav>
@@ -127,7 +128,8 @@ while ($row = mysqli_fetch_array($result)) {
          
          </div>
          <div class="panel-body">
-            <span>Problem id: ${idArr[i]}</span> &nbsp;&nbsp;&nbsp;
+            <span><strong>Problem id: </strong>${idArr[i]}</span> &nbsp;&nbsp;&nbsp;
+            <strong>Category: </strong> Arrays &nbsp;&nbsp;&nbsp;
             <span><button id=${idArr[i]} onClick="reply_click(this.id)" class="btn btn-success">Solve Problem</button></span>
          </div>
       </div>`;

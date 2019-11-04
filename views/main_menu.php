@@ -29,27 +29,8 @@
 
 </head>
 <body>
-<div class="main">
 
-<div class="row">
-  <div class="col-sm-12">
-  <nav class="shadow navbar navbar-inverse navbar-fixed-top nbar">
-    <div class="navbar-header">
-      <a class="navbar-brand lspace" href="index.php">Code Blocks</a>
-       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-            </button>
-    </div>
-   <div class="collapse navbar-collapse navbar-menubuilder">
-    <ul class="nav navbar-nav">
-      <li class="space"><a href="compiler.php"><i class="fa fa-code ispace"></i>Compiler</a></li>
-      <li class="space"><a href="archive.php"><i class="fa fa-archive ispace"></i>Problem Archive</a></li>
-      <li class="space"><a href="contest.php"><i class="fa fa-cogs ispace"></i>Contests</a></li>
-      <li class="space"><a href="#"><i class="fa fa-check-square ispace"></i>Debug</a></li>
-    </ul>
-    </div>
-  </nav>
-  </div>
-</div><br><br><br><br>
+
 
 <div class="row jumbotron">
   <center><br><br>
@@ -67,7 +48,7 @@
           </form>
       </span> &nbsp;&nbsp;&nbsp;
       <span>
-          <form action="views/login.php">
+          <form action="views/register.php">
             <button type="submit" class="btn btn-success">Register</button>
           </form>
       </span>
@@ -75,7 +56,7 @@
 
   </center>
 </div>
-
+<hr>
 <div class="container" id="about_us">
  
     <h1><center>About Us</center></h1>
@@ -99,46 +80,33 @@
         <div class="col-sm-6">
            <div class="panel panel-primary">
               <div class="panel-heading">
-                  <center><strong>Glory</strong></center>
+                  <center><strong>Learning</strong></center>
               </div>
                 <div class="panel-body">
-                    <p>You solve more challenges, you will earn points, and move up in the Hacker Rank Leader board. Many challenges will also involve a competition between your bots and the bots coded by other hackers, so may the best hacker win!
-                      </p>
+                <p>You will be able to learn new programming topics and techniques by going through the challenges on CodeBlocks. We provide an intuitive experience where you can refine your expertise using problem seggregated in categories.
+                        </p
                 </div>
             </div>
         </div>
       </div>
-      <div class="row">
-          <div class="col-sm-6">
-             <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <center><strong>Community</strong></center>
-                </div>
-                  <div class="panel-body">
-                      <p>We are building a community of Programmers who will be able to discuss problems, learn, compete and collaborate together.
-                        </p> 
-                  </div>
-              </div>
-          </div>
-          <div class="col-sm-6">
-             <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <center><strong>Learning</strong></center>
-                </div>
-                  <div class="panel-body">
-                      <p>You will be able to learn new programming topics and techniques by going through the challenges on CodeBlocks.
-                        </p>
-                  </div>
-              </div>
-          </div>
-        </div>
-
-
-   
-
 
 </div>
+</div>
 
+<hr>
+<div class="container" id="offer">
+<center>
+<h1> What do we offer ? </h1>
+<hr></center>
+<div class="list-group">
+  <a href="#" class="list-group-item">A wide variety of problems ranging categorized for ease of use.</a>
+  <a href="#" class="list-group-item">5 Languages supported which you can use to solve the problems you encounter.</a>
+  <a href="#" class="list-group-item">A practice IDE where you can practice your codings skills</a>
+  <a href="#" class="list-group-item">Keep a track on your profile including the list of problems solved in the past.</a>
+</div>
+
+</div>
+<hr>
 
 </body>
 </html>

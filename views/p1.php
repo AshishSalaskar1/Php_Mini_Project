@@ -19,13 +19,32 @@
         <script src="../js/vendor/jquery-1.12.0.min.js"></script>
         <script src="../bootstrap-3.3.7/js/bootstrap.min.js"> </script>
         <script src="../bootstrap-3.3.7/js/bootstrap.js"> </script>
+        <script language="javascript" type="text/javascript" src="edit_area/edit_area_full.js"></script>
+
+       
 
         <style>
             /* #cInput{
                 display: none;
             } */
+            body{
+              font-family: "Times New Roman";
+              font-size:20px;
+            }
+            .bg-success,.bg-primary{
+              padding: 5px;
+                padding-left:10px;
+                
+                border-radius: 10px;
+            }
         </style>
-
+      <script>
+      editAreaLoader.init({
+        id : "textarea_1"		// textarea id
+        ,syntax: "cpp"			// syntax to be uses for highgliting
+        ,start_highlight: true		// to display with highlight mode on start-up
+      });
+      </script>
         
 
 
@@ -35,13 +54,14 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">CodeBlocks</a>
+      <a class="navbar-brand" href="../main.php"><strong>CodeBlocks</strong></a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">Solve Problems</a></li>
-      <li><a href="#">Practice</a></li>
-      <li><a href="#">Community</a></li>
+      <li class="active"><a href="welcome.php">Solve Problems</a></li>
+      <li><a href="practice.php">Practice</a></li>
+      <li><a href="profile.php">Your Profile</a></li>
+      <!-- <li><a href="ranking.php">Ranking</a></li> -->
+      <li><button class="btn btn-danger" style="margin-left:30px;margin-top:8px;"> <a href="logout.php" style="color:white;">Log Out</a> </button></li>
     </ul>
   </div>
 </nav>
@@ -81,12 +101,12 @@
 
 <div id="container" class="container">
   <div id="problem_def">
-    <h2> <?php echo $name ?> <h2> 
+    <h2 class="bg-success"> <strong><?php echo $name ?></strong> <h2> 
     
-    <h4> Problem Description </h4>
+    <h3 class="bg-primary"> Problem Description </h3>
     <p><?php echo $description ?></p>
 
-    <h4> Sample Test Case </h4>
+    <h3 class="bg-primary"> Sample Test Case </h3>
     <p><?php echo $sample ?></p>
 
   </div>
@@ -99,7 +119,7 @@
 <form action="../compile.php" name="f2" method="POST">
         <label for="lang">Choose Language</label>
 
-        <select class="form-control" name="language">
+        <select id="langSel" class="form-control" name="language">
         <option value="c">C</option>
         <option value="cpp">C++</option>
         <option value="cpp11">C++11</option>
@@ -112,7 +132,7 @@
 
         <label for="ta">Write Your Code</label>
 
-        <textarea class="form-control" name="code" rows="10" cols="50" onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}">
+        <textarea id="textarea_1" class="form-control" name="code" rows="30" cols="300" onkeydown="if(event.keyCode===9){var v=this.value,s=this.selectionStart,e=this.selectionEnd;this.value=v.substring(0, s)+'\t'+v.substring(e);this.selectionStart=this.selectionEnd=s+1;return false;}">
         </textarea>
         <br><br>
         <label for="in">Enter Your Input</label>
@@ -138,25 +158,7 @@
 
 </div>
 
-<div class="col-sm-5">
 
-
-<div class="fm">
-
-<b>Beta Version-2016</b><br>
-<b>Developed By <a href="https://fb.com/ashadullah.shawon">Ashadullah Shawon</a></b>
-
-</div>
-</div>
-
-
-<div class="col-sm-4">
-<?php
-date_default_timezone_set("Asia/Dhaka");
- $t=date("H:i:s");
-echo"<b>Server Time:  $t</b>";
-
-?>
 </div>
 </div>
 </div>
@@ -180,6 +182,29 @@ echo"<b>Server Time:  $t</b>";
             setCustominput(`<?php echo $input; ?>`);
             setExpectedOp("<?php echo $output; ?>");
            
+
+</script>
+ <script>
+
+  const selectElement = document.getElementById('langSel');
+
+  selectElement.addEventListener('change', (event) => {
+      let lang = selectElement.value;
+      let setL="";
+      lang = lang.toLowerCase();
+      if (lang == "c") setL = "c";
+      if (lang == "java") setL = "java";
+      if (lang == "python2.7" || lang=="python3.2") setL = "python";
+      if (lang == "cpp" || lang=="cpp11") setL = "cpp";
+      
+      console.log(setL);
+
+      editAreaLoader.init({
+        id : "textarea_1"		// textarea id
+        ,syntax: setL			// syntax to be uses for highgliting
+        ,start_highlight: true		// to display with highlight mode on start-up
+      });
+  });
 
 </script>
 </body>

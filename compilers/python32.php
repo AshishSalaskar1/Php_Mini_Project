@@ -1,3 +1,4 @@
+
 <?php
 
 	session_start();
@@ -9,7 +10,7 @@
 	$eOutput=$_POST["eOutput"];
 	$pid = $_POST["pid"];
 
-	echo "PID: ".$pid."<br>";
+	// echo "PID: ".$pid."<br>";
 
 	$filename_code="main.py";
 	$filename_in="input.txt";
@@ -33,8 +34,8 @@
 	//exec("chmod 777 $executable");
 	exec("chmod 777 $filename_error");
 
-	echo("Input: ".$input."<br>");
-	echo("Output: ".$eOutput);
+	// echo("Input: ".$input."<br>");
+	// echo("Output: ".$eOutput);
 
 	shell_exec($command_error);
 	$error=file_get_contents($filename_error);
@@ -59,7 +60,10 @@
 
 		if(strcmp($eOutput,$output) == 0){
 
-			echo "Succesfully Accepted<br>";
+			if($eOutput != "test"){
+				echo "Succesfully Accepted<br>";
+				echo "<center><img src='views/images/correct.png'/></center><br><br>";
+			}
 
 			//save to database if solved
 			// include("../sql.php");
@@ -88,22 +92,27 @@
 			// echo "This one".$db_user_name;
 
 			if (mysqli_query($db_handle, $sqlStatement)) {
-				echo "New record created successfully";
+				// echo "New record created successfully";
 			} else {
-				echo "Error: " . $sqlStatement . "<br>" . mysqli_error($db_handle);
+				// echo "Error: " . $sqlStatement . "<br>" . mysqli_error($db_handle);
 			}
 
 			mysqli_close($db_handle);
 
 		}
 		else{
-			echo "Wrong Answer";
+			if($eOutput != "test"){
+				echo "Wrong Answer";
+				echo "<center><img src='views/images/wrong.png'/></center><br><br>";
+			}
 		}
 	}
 	else
 	{
-		echo "<pre>$error</pre>";
-		echo "Wrong Answer";
+		if($eOutput != "test"){
+			echo "Wrong Answer";
+			echo "<center><img src='views/images/wrong.png'/></center><br><br>";
+		}
 	}
 
 

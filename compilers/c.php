@@ -38,11 +38,61 @@
 			$out=$out." < ".$filename_in;
 			$output=shell_exec($out);
 		}
+
+		$output = trim($output);
+		$eOutput = trim($eOutput);
 		//echo "<pre>$output</pre>";
         echo "<textarea id='div' class=\"form-control\" name=\"output\" rows=\"10\" cols=\"50\">$output</textarea><br><br>";
+	
+	
+		if(strcmp($eOutput,$output) == 0){
+
+			echo "Succesfully Accepted<br>";
+			echo "<center><img src='views/images/correct.png'/></center><br><br>";
+
+			//save to database if solved
+			// include("../sql.php");
+
+			// include("../test.php");
+			
+
+			$db_server_name = "localhost:3306";
+			$db_user_name = "ashish";
+			$db_password="ashish98";
+			$database_name = "web_project";
+
+			$db_handle = mysqli_connect($db_server_name, $db_user_name, $db_password);
+
+			if($db_handle === false){
+				die("ERROR: Could not connect. " . mysqli_connect_error());
+			}
+
+			mysqli_select_db($db_handle,$database_name);
+
+			$sqlStatement = "INSERT INTO solved_problems (user_id, problem_id, language)
+			VALUES ". "(" .$uid.",".$pid.",'cpp11');";
+
+			// $sqlStatement = "insert into solved_problems(user_id,problem_id,language) VALUES (1,3,'C');";
+
+			// echo "This one".$db_user_name;
+
+			if (mysqli_query($db_handle, $sqlStatement)) {
+				echo "New record created successfully";
+			} else {
+				echo "Error: " . $sqlStatement . "<br>" . mysqli_error($db_handle);
+			}
+
+			mysqli_close($db_handle);
+
+		}
+		else{
+			echo "<center><img src='views/images/wrong.png'/></center><br><br>";
+		}
 	}
 	else if(!strpos($error,"error"))
+	
 	{
+		echo "<center><img src='views/images/wrong.png'/></center><br><br>";
 		echo "<pre>$error</pre>";
 		if(trim($input)=="")
 		{
@@ -58,6 +108,7 @@
 	}
 	else
 	{
+		echo "<center><img src='views/images/wrong.png'/></center><br><br>";
 		echo "<pre>$error</pre>";
 		$check=1;
 	}

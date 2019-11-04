@@ -21,24 +21,20 @@
 </head>
 <body>
 <div class="main">
-<div class="row">
-<div class="col-sm-12">
-<nav class="navbar navbar-inverse navbar-fixed-top nbar">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand lspace" href="index.php">RUET OJ</a>
+      <a class="navbar-brand" href="main.php"><strong>CodeBlocks</strong></a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="space"><a href="compiler.php"><i class="fa fa-code ispace"></i>Compiler</a></li>
-      <li class="space"><a href="archive.php"><i class="fa fa-archive ispace"></i>Problem Archive</a></li>
-      <li class="space"><a href="contest.php"><i class="fa fa-cogs ispace"></i>Contests</a></li>
-      <li class="space"><a href="debug.php"><i class="fa fa-check-square ispace"></i>Debug</a></li>
-     
-      
+      <li class="active"><a href="views/welcome.php">Solve Problems</a></li>
+      <li><a href="views/practice.php">Practice</a></li>
+      <li><a href="views/profile.php">Your Profile</a></li>
+      <!-- <li><a href="ranking.php">Ranking</a></li> -->
+      <li><button class="btn btn-danger" style="margin-left:30px;margin-top:8px;"> <a href="logout.php" style="color:white;">Log Out</a> </button></li>
     </ul>
-  
+  </div>
 </nav>
-</div>
-</div>
 
 
 <div class="row log">
