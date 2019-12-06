@@ -1,27 +1,17 @@
-# Demo
-
-http://ruetoc-ruetoc.apps.ca-central-1.starter.openshift-online.com/
-
 
 # Online-Compiler
 
-This is an online compiler that can compile and run C\C++ And Java Program. This online compiler is a part of my 5th semester project
-"RUET Online Judge" . This Online Compiler is Developed By <a href="http://fb.com/ashadullah.shawon">Ashadullah Shawon</a>
+This is an online compiler that can compile and run C\C++, Python And Java Program.
 
 # Languages
-C , C++ And Java
+C , C++, Java And Java
 
 # Requirements
 
-Linux, gcc, g++ , Java Compilers And Lampp
+Linux, gcc, g++ , Java, Python Compilers And Lampp
 
 
-# Install Projects And Compilers
-
-```
-git clone https://github.com/shawon100/Online-Compiler.git
-
-```
+# Install Compilers
 
 C/C++
 ```
@@ -45,5 +35,3 @@ sudo apt install openjdk-8-jre
 chmod -R 777 Online-Compiler
 ```
 
-# Windows Version
-https://github.com/shawon100/Online-Compiler-Windows-Server
